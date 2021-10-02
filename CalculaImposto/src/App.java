@@ -15,10 +15,16 @@ public class App {
             System.out.println("Digite o opção relacionada a regiao de emissão da nota fiscal: \n 1 - São Paulo \n 2 - Rio de Janeiro");
             opcao = System.console().readLine().intern();
         } while (!opcao.matches("[1-2]"));
-        
         if(opcao.intern()=="1")
+        {
             nota.valor = impSP.CalcularImposto(Double.parseDouble(valor.intern()));
+            nota.estado = "São Paulo";
+        }
         else
+        {
             nota.valor = impRio.CalcularImposto(Double.parseDouble(valor));
+            nota.estado = "Rio de Janeiro";
+        }
+        System.out.println("O valor a ser pago é R$"+nota.valor);
     }
 }
